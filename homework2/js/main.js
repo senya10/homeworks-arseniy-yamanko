@@ -7,7 +7,7 @@ console.log(b);
 let c = null || 25;//25 - первое значение, которое является true
 console.log(c);
 
-let d = null && 25;//null, 1е значение false, возвращается, 2ой аргумент игнорир
+let d = null && 25;//null, 1е значение false возвращается, 2ой аргумент игнорир
 console.log(d);
 
 let e = null || 0 || 35; //35 первое значение, которое является true
@@ -59,15 +59,22 @@ let item = { name: 'Intel core i7', price: '100$', discount: '15%' }
 
 
 
+
+
 let product = {
     name: "Яблоко",
     price: "20$"
 }
 
-let min = 10;
+let min = 10;   //Написать условие если цена товара больше или равна минимальной цене и меньше или равна максимальной цене то вывести в консоль название этого товара, иначе вывести в консоль что товаров не найдено.
 let max = 20;
 product.price = parseInt(product.price,10);
 if (product.price >= min && product.price <= max){
     console.log(product.name);
 }else{
     console.log('товаров не найдено');}
+
+let mobile = {product: 'iphone'};             // Создать объект с полем product, равным ‘iphone’
+mobile.price = 1000;                        // Добавить в объект поле price, равное 1000 и поле currency, равное ‘dollar’
+mobile.currency = 'dollar';
+mobile.details = {model: '', color: ''};    // Добавить поле details, которое будет содержать объект с полями model и color

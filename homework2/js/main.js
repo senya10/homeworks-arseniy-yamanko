@@ -66,7 +66,8 @@ let product = {
 
 let min = 10;
 let max = 20;
-if (Number(product.price) > min){
+product.price = parseInt(product.price,10);
+if (product.price >= min && product.price <= max){
     console.log(product.name);
 }else{
     console.log('товаров не найдено');}

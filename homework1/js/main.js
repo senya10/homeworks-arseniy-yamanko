@@ -3,11 +3,11 @@ console.log(string[0]);                   //1я буква строки
 console.log(string.slice(-1));            //последняя буква строки
 
 console.log(string[0].toUpperCase()+string.substring(1));         //1я буква верхний регистр
-console.log(string.slice(0,15)+string.slice(-1).toUpperCase());  //последняя буква верхний регистр
+console.log(string.slice(0, string.length - 1 ) + string.slice(-1).toUpperCase());  //последняя буква верхний регистр
 
 console.log(string.indexOf("string"));        //положение string в строке
 
-console.log(string.indexOf(" ", 5));          //положение 2го пробела в строке
+console.log(string.indexOf(" ", string.indexOf(' ') + 1));          //положение 2го пробела в строке
 
 console.log(string.substr(5,4));             //строка с 5-го символа длиной 4 буквы
 

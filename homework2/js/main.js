@@ -31,3 +31,42 @@ undefined + 2 //NaN , undefined при числовом преобразован
 null + 5    // null ри числовом преобразовании становится 0
 
 true + undefined    //NaN
+
+let x = 'hidden';               //Если переменная равна “hidden”, присвоить ей значение “visible”, иначе - “hidden”.
+if (x ==='hidden'){
+    console.log(x = 'visible');
+}else{
+    console.log(x);}
+
+let n = 0;
+if (n===0){
+    console.log(n=1);                   //если переменная равна нулю, присвоить ей 1;
+}else if(n<0){
+    console.log(n = 'less then zero');  //если меньше нуля - строку “less then zero”;
+}else if(n>0){
+    console.log(n*=10);         //если больше нуля - используя оператор “присвоение”, переменную умножить на 10
+}
+
+let car = { name: 'Lexus', age: 10, create: 2008, needRepair: false }
+if (car.age > 5){
+    console.log('Need Repair');  // если возраст машины больше 5 лет то нужно вывести в консоль сообщение 'Need Repair'
+    car.needRepair = true;       // и свойство needRepair в объекте car изменить на true
+}else{
+    car.needRepair = false;      // иначе изменить на false
+}
+
+let item = { name: 'Intel core i7', price: '100$', discount: '15%' }
+
+
+
+let product = {
+    name: "Яблоко",
+    price: "20$"
+}
+
+let min = 10;
+let max = 20;
+if (Number(product.price) > min){
+    console.log(product.name);
+}else{
+    console.log('товаров не найдено');}

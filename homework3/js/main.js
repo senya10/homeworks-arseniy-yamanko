@@ -52,7 +52,7 @@ let g = 'i am in the easycode'
 let h = '';
 
 for (let i = 0; i < g.length; i++){
-    h += (g [i-1] == ' ')
+    h += (g [i-1] === ' ')
     ? g[i].toUpperCase() 
     : g[i];
 }
@@ -91,11 +91,11 @@ console.log(b);
 
 //5#
 
-for (let i = 1; i <= 15; i++){
-    if (i%2 === 1){
-        console.log(i);
-    }
-}
+let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+for (let myNumber of number){
+    if(myNumber%2 !== 1){continue}
+    console.log(myNumber);
+} 
 
 //#6
 

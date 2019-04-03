@@ -3,7 +3,8 @@
 function multiply(){
     let result = 1;
     if(arguments.length === 0) return 0;
-    for(let i=0; i<arguments.length; i++) result *= arguments[i];
+    for(let i=0; i < arguments.length; i++)
+    result *= arguments[i];
     console.log(result);
     return result;
 }
@@ -62,8 +63,8 @@ random();
 //5#
 function Narray(n){
     let resultArray = [];
-    while ( n > 0){
-        resultArray.push(n--)
+    while (n > 0){
+    resultArray.push(n--)
     }
     resultArray.reverse();
     console.log(resultArray);

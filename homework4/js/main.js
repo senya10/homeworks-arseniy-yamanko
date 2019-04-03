@@ -25,19 +25,21 @@ reverseString('tseb eht ma i');
 
 //#3
 
-function getCodeStringFromText(string1){
-    let newString1 = '';
-    let splits = string1.split('');
-    for (let i = 0; i < string1; i++){
-        let item = splits[i];
-        let uniCode = item.charCodeAt(i) + ' ';
-        newString1 += uniCode;
+function getCSFT(string) {
+    var newSting = [];
+    for (var i = 0; i < string.length; i++) {
+    var uniCode = string.charCodeAt(i);
+    console.log('i', i);
+    console.log('uniCode', uniCode);
+    newSting.push(uniCode);
     }
-    console.log(newString1);
-    return newString1;
-}
+    var joinedNewSting = newSting.join(' ');
+    console.log('newSting', newSting);
+    console.log('joinedNewSting', joinedNewSting);
+    return joinedNewSting;
+    }
 
-getCodeStringFromText('hello');
+    getCSFT('hello');
 
 //#4
 

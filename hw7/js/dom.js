@@ -52,50 +52,33 @@
 let pText = document.getElementsByTagName("p")['0'].textContent;
 console.log(pText);
 
+// ЗАДАЧА №2 : Создать функцию, которая принимает в качестве аргумента узел DOM и возвращает информацию (в виде объекта) о типе узла,
+// об имени узла и о количестве дочерних узлов (если детей нет - 0). 
+  const infoObject = (elem) => {
+  const myElem = document.querySelector(elem);
+  const typeMyElem = myElem.nodeType;
+  const nameMyElem = myElem.nodeName;
+  const childMyElem = myElem.children.length;
+  const properMyElem ={
+      type: typeMyElem,
+      name: nameMyElem,
+      child: childMyElem
+  };
+  return properMyElem
+};
+
+console.log(infoObject('div'));
+
 //3. Получить массив, который состоит из текстового содержимого ссылок внутри списка: 
 // getTextFromUl(ul) ---> ["Link1", "Link2", "Link3"]
 
-let ul = document.querySelector("ul");
-let result = [];
+    let a = document.querySelectorAll("li a")
+    let result = [];
 
-function getTextFromUl(list) {
-    let a = list.querySelectorAll("li a");
-    for (let i = 0; i < a.length; i++) {
-        let element = a[i];
-        result.push(element.textContent);
-    }
-    return result;
-}
-console.log(getTextFromUl(ul));
-
-//Найти в коде список ul и добавить класс “list”
-let ulClass = document.getElementsByTagName('ul')['0'];
-ulClass.classList.add("list");
-console.log(ulClass);
-
-//Найти в коде ссылку, находящуюся после списка ul, и добавить id=link
-let a = document.getElementsByClassName('link-class')[0].id = 'link';
-let aClassLink = document.getElementById('link');
-console.log(aClassLink);
-
-//На li через один (начиная с самого первого) установить класс “item”
-let getElementAllLi = document.getElementsByTagName('li');
-
-for (let i = 0; i < getElementAllLi.length; i+=2){
-    let element = getElementAllLi[i];
-    element.classList.add('item');
-}
-let liClassItem = document.getElementsByClassName('item');
-console.log(liClassItem);
-
-//На все ссылки в примере установить класс “custom-link”
-let getElementAllLinks = document.querySelectorAll('a');
-
-for (let i = 0; i < getElementAllLinks.length; i++){
-    let element = getElementAllLinks[i];
-    element.classList.add('custom-link');
-}
-console.log(getElementAllLinks);
+    a.forEach(function(item){
+      result.push(item.textContent)
+    });
+    console.log(result)
 
 // 4. В параграфе заменить все дочерние текстовые узлы на “-text-” (вложенные теги должны остаться). 
 // Конечный результат:
@@ -112,16 +95,43 @@ for (let i in p){
 }
 console.log(res);
 
-//В каждую ссылку, которая находятся внутри списка ul  добавить по тегу strong (в каждую ссылку один - strong). 
-const linksAll = document.links;
-for (let link of linksAll) {
-  if (link.parentNode.tagName === 'LI') {
-        const strong = document.createElement('strong');
-        link.insertAdjacentElement('afterbegin', strong);
-  }
-}
 
-// Не используя innerHTML, добавить в список несколько li с классом ‘new-item’ и текстом ‘item’ + номер li:
+// *************************************************************************
+
+
+//1 Найти в коде список ul и добавить класс “list”
+let ulClass = document.getElementsByTagName('ul')['0'];
+ulClass.classList.add("list");
+console.log(ulClass);
+
+//2 Найти в коде ссылку, находящуюся после списка ul, и добавить id=link
+let aElem = document.querySelector('ul ~ a');
+aElem.id = 'link';
+console.log(aElem);
+
+// 3 На li через один (начиная с самого первого) установить класс “item”
+let getElementAllLi = document.getElementsByTagName('li');
+for (let i = 0; i < getElementAllLi.length; i+=2){
+    let element = getElementAllLi[i];
+    element.classList.add('item');
+}
+let liClassItem = document.getElementsByClassName('item');
+console.log(liClassItem);
+
+// 4 На все ссылки в примере установить класс “custom-link”
+let getElementAllLinks = document.querySelectorAll('a');
+
+for (let i = 0; i < getElementAllLinks.length; i++){
+    let element = getElementAllLinks[i];
+    element.classList.add('custom-link');
+}
+console.log(getElementAllLinks);
+
+
+//*********************************************************************** */
+
+
+// 1 Не используя innerHTML, добавить в список несколько li с классом ‘new-item’ и текстом ‘item’ + номер li:
 const fragment = document.createDocumentFragment(),
       newUl = document.querySelector('ul'),
       numbChildrenUl = newUl.children.length;
@@ -134,3 +144,33 @@ for (let index = 1; index <= 3; index++) {
 }
 newUl.appendChild(fragment);
 console.log(newUl)
+
+
+// 2 В каждую ссылку, которая находятся внутри списка ul  добавить по тегу strong (в каждую ссылку один - strong). 
+const linksAll = document.links;
+for (let link of linksAll) {
+  if (link.parentNode.tagName === 'LI') {
+        const strong = document.createElement('strong');
+        link.insertAdjacentElement('afterbegin', strong); // Не понял как обернуть содержимое а в strong 
+  }
+}
+
+// 3 В начало документа (в начало body) добавить картинку img с атрибутами src и alt (текст придумайте сами). 
+//В src добавьте реальный url к картинке. Для создания элемента используйте метод createElement. 
+const createImg = document.createElement('img');
+createImg.width = 450;
+createImg.src ='https://static.ua-football.com/img/upload/19/26cc85.jpeg'
+createImg.alt = 'The Best'
+document.body.insertAdjacentElement('afterbegin', createImg);
+
+// 4 Найти на странице элемент mark, добавить в конец содержимого текст “green” и на элемент установить класс green
+
+const markEl = document.querySelector('mark');
+    markEl.insertAdjacentText('beforeend', 'green')
+    markEl.classList.add('green')
+
+// 5 Отсортировать li внутри списка в обратном порядке (по тексту внутри)
+let li = Array.prototype.slice.call(document.querySelectorAll('ul li'), 0);
+  li
+    .sort((prev, next) => prev.innerText > next.innerText ? -1 : 1)
+    .forEach(element => newUl.append(element))

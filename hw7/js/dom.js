@@ -148,10 +148,15 @@ console.log(newUl)
 
 // 2 В каждую ссылку, которая находятся внутри списка ul  добавить по тегу strong (в каждую ссылку один - strong).
 const linksAll = document.links;
+
 for (let link of linksAll) {
   if (link.parentNode.tagName === 'LI') {
+        const linkText = link.innerText;
         const strong = document.createElement('strong');
-        link.insertAdjacentElement('afterbegin', strong); // Не понял как обернуть содержимое а в strong 
+        strong.innerHTML = linkText;
+        link.innerHTML = strong.innerHTM;
+        link.innerHTML = '';
+        link.insertAdjacentElement('afterbegin', strong) // Не понял как обернуть содержимое а в strong 
   }
 }
 

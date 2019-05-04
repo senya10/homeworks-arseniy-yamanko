@@ -146,7 +146,7 @@ newUl.appendChild(fragment);
 console.log(newUl)
 
 
-// 2 В каждую ссылку, которая находятся внутри списка ul  добавить по тегу strong (в каждую ссылку один - strong). 
+// 2 В каждую ссылку, которая находятся внутри списка ul  добавить по тегу strong (в каждую ссылку один - strong).
 const linksAll = document.links;
 for (let link of linksAll) {
   if (link.parentNode.tagName === 'LI') {
@@ -166,7 +166,7 @@ document.body.insertAdjacentElement('afterbegin', createImg);
 // 4 Найти на странице элемент mark, добавить в конец содержимого текст “green” и на элемент установить класс green
 
 const markEl = document.querySelector('mark');
-    markEl.insertAdjacentText('beforeend', 'green')
+    markEl.insertAdjacentHTML('afterEnd', ' green')
     markEl.classList.add('green')
 
 // 5 Отсортировать li внутри списка в обратном порядке (по тексту внутри)

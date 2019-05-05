@@ -171,7 +171,7 @@ document.body.insertAdjacentElement('afterbegin', createImg);
 // 4 Найти на странице элемент mark, добавить в конец содержимого текст “green” и на элемент установить класс green
 
 const markEl = document.querySelector('mark');
-    markEl.insertAdjacentHTML('afterEnd', ' green')
+    markEl.insertAdjacentHTML('beforeend', ' green')
     markEl.classList.add('green')
 
 // 5 Отсортировать li внутри списка в обратном порядке (по тексту внутри)

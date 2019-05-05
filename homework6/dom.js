@@ -73,7 +73,7 @@ function isParent (parent, child){
     } else {
         return false
     }
-return isParent
+return child.parentElement === parent 
 };
 console.log(isParent(document.body.children[0], document.querySelector('mark')));
 

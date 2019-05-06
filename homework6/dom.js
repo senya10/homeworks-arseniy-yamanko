@@ -68,12 +68,7 @@ console.log(Array.prototype.slice.call(firstDiv.children, 1, -1));
 //  false так ul НЕ является родительским элементом для mark
 
 function isParent (parent, child){
-    if (child.parentElement === parent){
-        return true
-    } else {
-        return false
-    }
-return child.parentElement === parent 
+    return child.parentElement === parent
 };
 console.log(isParent(document.body.children[0], document.querySelector('mark')));
 

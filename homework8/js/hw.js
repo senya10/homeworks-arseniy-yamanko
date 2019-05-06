@@ -1,84 +1,31 @@
-/**
- *  ==== Создание эл-ов ====
- */
+//1.По нажатию на кнопку "btn-msg" должен появиться алерт с тем текстом который находится ватрибуте data-text у кнопки
 
-// createElement
-const div = document.createElement('div');
-const title = document.createElement('h1')
-title.innerText = 'title'
+const btn = document.getElementById('btn-msg');
+btn.addEventListener('click', () => alert(btn.getAttribute('data-text')))
 
-//  innerHTML, textContent
-// div.innerHTML = '<h1>Div Title</h1>';
-div.textContent = 'text';
+// 2. При наведении указателя мыши на "btn-msg", кнопка становится красной; когда указатель мыши
+// покидает кнопку, она становится прежнего цвета. Цвет менять можно через добавление класса.
 
-// classList - add, contains, toggle, remove;
-div.classList.add('myClass', 'myClass2');
-
-// attributes, getAttribute(attrName), setAttribute(attrName, value), hasAttribute(attrName), removeAttribute(attrName)
-div.setAttribute('id', 'myId');
-
-// dataset
-let divWithIdFirst = document.getElementById('first');
-console.log(divWithIdFirst.dataset);
-
-// Append
-divWithIdFirst.appendChild(div);
-// divWithIdFirst.insertAdjacentElement('beforebegin', div);
-// divWithIdFirst.insertAdjacentHTML('afterbegin','<h1>Title</h1>');
-
-// remove
-divWithIdFirst.replaceChild(title, div);
-document.body.removeChild(divWithIdFirst);
-
-
-
-/**
- * ==== Home work ====
- */
-
-// slide 11 # 2
-// a
-const linkAfterUlBySelector = document.querySelector('ul ~ a');
-linkAfterUlBySelector.id = 'link'
-
-// b
-let linkAfterUlByNextElement = document.querySelector('ul').nextElementSibling;
-while (linkAfterUlByNextElement) {
-    if (linkAfterUlByNextElement.tagName === 'A') {
-        linkAfterUlByNextElement.setAttribute('id', 'link1')
-        break
-    }
-
-    linkAfterUlByNextElement = linkAfterUlByNextElement.nextElementSibling
+function colorButton(e) {
+    e.type == 'mouseover'
+    ? this.style.background = 'red'
+    : this.style.background = '';
 }
+btn.onmouseout = colorButton;
+btn.onmouseover = colorButton;
 
+//3. При нажатии на любой узел документа показать в элементе с id=tag имя тега нажатого элемента
 
+document.body.onclick = e => document.querySelector("#tag").textContent = 'Tag: ' + e.target.tagName;
 
-// slide 17 # 1
-//a
-let ul = document.querySelector('ul');
-let childLength = ul.children.length;
+//4. При нажатии на кнопку btn-generate добавлять в список ul элемент списка Li с текстом Item +
+// порядковый номер Li по списку, т.е Item 3, Item 4 и т.д 
 
-for (let i = 0; i < childLength; i++) {
-    ul.insertAdjacentHTML('beforeend', `<li class="new-item">Item ${i+1}</li>`);
-}
-
-// b
-const fragmentForUl = document.createDocumentFragment()
-Array.prototype.forEach.call(ul.children, (_, index) => {
-    // document.createElement(`<li class="new-item">Item ${index+1}</li>`)
-    const li = document.createElement('li')
-    li.classList.add('new-item')
-    li.innerText = `New Item ${index+1}`
-
-    fragmentForUl.appendChild(li)
+const btnGen = document.getElementById('btn-generate')
+btnGen.addEventListener('click', () => {
+    let ul = document.querySelector('ul')
+    let numbChildrenUl = ul.children.length;
+    const newLi = document.createElement('li')
+    newLi.textContent = `item ${numbChildrenUl + 1}`
+    ul.appendChild(newLi)
 })
-
-ul.appendChild(fragmentForUl)
-
-
-// slide 18 # 5
-let li = Array.prototype.slice.call(document.querySelectorAll('ul li'), 0);
-li
-    .sort((prev, next) => prev.innerText > next.innerText ? -1 : 1)
-    .forEach(el => ul.append(el))

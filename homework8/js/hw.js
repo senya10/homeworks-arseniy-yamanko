@@ -29,3 +29,4 @@ btnGen.addEventListener('click', () => {
     newLi.textContent = `item ${numbChildrenUl + 1}`
     ul.appendChild(newLi)
 })
+

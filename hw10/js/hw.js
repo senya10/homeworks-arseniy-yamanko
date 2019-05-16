@@ -29,32 +29,94 @@ console.log(multiply(10));
 
 //3
 
-const string = (function(){
+const strMaker = (function () {
+ 
+    let newStr;
+    function setString(str = '') { newStr = '' + str; }
+    function getString() { return newStr; }
+    function getLength() { return newStr.length; }
+    function reverseString() { return newStr.split('').reverse().join(''); }
+ 
+    return {
+        setString: setString,
+        getString: getString,
+        getLength: getLength,
+        reverseString: reverseString,
+    };
+})();
+ 
+console.log(strMaker.setString("MyString"));
+console.log(strMaker.getString());
+console.log(strMaker.getLength());
+console.log(strMaker.reverseString());
+ 
+console.log(strMaker.setString(123));
+console.log(strMaker.getString());
+console.log(strMaker.getLength());
+console.log(strMaker.reverseString());
+ 
+console.log(strMaker.setString());
+console.log(strMaker.getString());
+console.log(strMaker.getLength());
+console.log(strMaker.reverseString());
 
-  function stringNull(val){
-    if (val === undefined){
-      return '';
-    }
+
+//4
+
+const calculator = (function () {
+ 
+  let res;
+
+  function setValue(val) {
+      if (!val || typeof (val) !== 'number') { return console.log('Non-valid value!') }
+      console.log(res = val);
+      return this;
   }
-
-  function stringLength(args){
-    return args.length;
+  function add(val) {
+      if (!val || typeof (val) !== 'number') { return console.log('Non-valid value!') }
+      console.log(res += val);
+      return this;
   }
-
-  function stringReverse(args){
-    return args.split('').reverse().join('');
+  function mult(val) {
+      if (!val || typeof (val) !== 'number') { return console.log('Non-valid value!') }
+      console.log(res *= val);
+      return this;
+  }
+  function substr(val) {
+      if (!val || typeof (val) !== 'number') { return console.log('Non-valid value!') }
+      console.log(res -= val);
+      return this;
+  }
+  function divis(val) {
+      if (!val || typeof (val) !== 'number') { return console.log('Non-valid value!') }
+      console.log(res /= val);
+      return this;
+  }
+  function exponent(val) {
+      if (!val || typeof (val) !== 'number') { return console.log('Non-valid value!') }
+      console.log(res = Math.pow(res, val));
+      return this;
+  }
+  function getValue() {
+      console.log(res = Math.round(res * 100) / 100);
+      return this;
   }
 
   return {
-    stringLength,
-    stringReverse,
-    stringNull
-  }
-})()
 
-console.log(string.stringLength('money'));
-console.log(string.stringReverse('barsa'));
-console.log(string.stringNull());
+      setValue: setValue,
+      add: add,
+      mult: mult,
+      substr: substr,
+      divis: divis,
+      exponent: exponent,
+      getValue: getValue,
+  };
+})();
+
+calculator.setValue(10).add(5).mult(2).getValue();
+
+calculator.setValue(10).exponent(2).getValue();
 
 //1
 

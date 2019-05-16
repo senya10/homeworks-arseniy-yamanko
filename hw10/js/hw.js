@@ -61,29 +61,23 @@ console.log(string.stringNull());
 function Car(name, age){
   this.name = name;
   this.age = age;
-  this.getName = function(){
-    console.log(name.charAt(0).toUpperCase() + name.slice(1));
-  }
-  this.getAge = function(){
+  this.getName = function(){ return this.name.charAt(0).toUpperCase() + this.name.slice(1);}
+  this.getAge = function(){ 
     const date = new Date();
-    console.log(date.getFullYear() - age);
+    return date.getFullYear() - this.age;}
   }
-}
 const lexus = new Car('lexus', 2);
-lexus.getName();
-lexus.getAge();
+console.log(lexus.getName());
+console.log(lexus.getAge());
 
 //2
 
 function String(val){
-  this.getOrigin = function(){
-    console.log(val);
-  }
-  this.getRever = function(){
-    console.log(val.split('').reverse().join(''))
-  }
+  this.val = val;
+  this.getOrigin = function(){return this.val;}
+  this.getRever = function(){return this.val.split('').reverse().join('');}
 }
 
 const str = new String('Ford is the best');
-str.getOrigin();
-str.getRever();
+console.log(str.getOrigin());
+console.log(str.getRever())

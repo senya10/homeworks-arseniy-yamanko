@@ -9,7 +9,7 @@
 // sum(1, 2, 3, 4); // 10 sum(); // 0
 
 const sum = (...props) => {
-  let params = Array.prototype.slice.call(props);
+  let params = props;
   
   if (!params.length) return 0;
   return params.reduce((prev, next) => prev + next);

@@ -1,0 +1,13 @@
+#add-users{
+    color: rgb(108, 165, 42);
+    background-color: #00f7ff;
+    height:50px;
+    width: 100px;
+}
+.new{
+color:black; 
+}
+.second{
+    color: rgb(255, 0, 191);
+    border: 2px solid red;
+}
